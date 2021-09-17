@@ -12,10 +12,12 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class User {
     @Id
+
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id; //la base de datos\
 
@@ -26,7 +28,9 @@ public class User {
     @Column
     private String name; // informacion extra 
     @Column
-    private String color; // informacion extra 
+    private String color; // informacion extra
+    @OneToOne
+    private Car carritoUser;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "USER_ROLES",
@@ -86,6 +90,14 @@ public class User {
     public void setColor(String color) {
         this.color = color;
     }
+
+    public Car getCarritoUser() {
+        return carritoUser;
+    }
+    public void setCarritoUser(Car carritoUser) {
+        this.carritoUser = carritoUser;
+    }
+
     public void addRole(Role role){
         if(this.roles!=null){
             this.roles.add(role);

@@ -10,7 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+
 
 @Entity
 public class Car {
@@ -22,9 +22,6 @@ public class Car {
     @Column
     private int total;
 
-    @OneToOne
-    private User userProp;
-
     @OneToMany
     private List<Product> listProducts = new ArrayList<>();
 
@@ -34,14 +31,6 @@ public class Car {
 
     public void setTotal(int total) {
         this.total = total;
-    }
-
-    public User getUserProp() {
-        return userProp;
-    }
-
-    public void setUserProp(User userProp) {
-        this.userProp = userProp;
     }
 
     public List<Product> getListProducts() {

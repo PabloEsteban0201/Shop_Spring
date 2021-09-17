@@ -34,7 +34,6 @@ public class CarDto {
     
     public Car getCarFromDto(){
         Car c = new Car();
-        c.setUserProp(this.userProp);
         c.setTotal(this.total);
         c.setListProducts(this.listProducts);
         return c;

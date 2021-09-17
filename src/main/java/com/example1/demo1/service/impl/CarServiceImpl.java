@@ -17,7 +17,6 @@ public class CarServiceImpl implements CarService {
     
     public Car inicializarCar (Product p, User u){
         Car c = new Car();
-        c.setUserProp(u);
         c.addProduct(p);
 
         return car_dao.save(c);  
