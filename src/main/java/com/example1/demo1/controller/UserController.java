@@ -32,17 +32,17 @@ public class UserController {
         }
         return userService.save(user);
     }
+
     @GetMapping("/listUsers")
     public List<User> listUsers(){
         return userService.findAll();
     }
+
     @GetMapping("/byInitial/{letra}")
     public List <User> porInicial( @PathVariable(value="letra") String letra ){
         return userService.findByInitial(letra);
     }
 
-    @RequestMapping
-    public void userAddProductToCar(){
 
-    }
+    
 }

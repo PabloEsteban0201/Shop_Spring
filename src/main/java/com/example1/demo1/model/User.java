@@ -107,8 +107,16 @@ public class User {
         }
     }
 
-    public void selectProduct(Product p){
-        
+
+    public void addProductToCar(Product p){
+        //Primero seleccionamos un producto
+        //Segundo creamos el carrito
+        if(this.carritoUser==null){
+            this.carritoUser = new Car();
+            this.carritoUser.addProduct(p);
+        }else{
+            this.carritoUser.addProduct(p);
+        }
     }
     
 }
