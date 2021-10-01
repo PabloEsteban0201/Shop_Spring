@@ -5,7 +5,9 @@ import java.util.Optional;
 
 import com.example1.demo1.dao.RoleDao;
 import com.example1.demo1.dao.UserDao;
+import com.example1.demo1.dto.ProductDto;
 import com.example1.demo1.dto.UserDto;
+import com.example1.demo1.model.Product;
 import com.example1.demo1.model.Role;
 import com.example1.demo1.model.User;
 import com.example1.demo1.service.UserService;
@@ -19,6 +21,9 @@ public class UserServiceImpl implements UserService {
     private UserDao userDao;
     @Autowired
     private RoleDao roleDao;
+
+    private ProductServiceImpl pImpl;
+
     @Override
     public User save(UserDto infoUsuario) {
         User userToSave = infoUsuario.getUserFromDto();
@@ -61,7 +66,12 @@ public class UserServiceImpl implements UserService {
         return userDao.findById(id);
     }
 
-  
+    // public void addProductToCar(Long idUser, Long idProduct){
+
+    //     User costumer = this.findById(idUser).get();
+    //     Product p = pImpl.findById(idProduct).get();
+    //     costumer.addProductToCar(p);
+    // }    
 
     
 }

@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
+import com.example1.demo1.dto.ProductDto;
 import com.example1.demo1.dto.UserDto;
 import com.example1.demo1.model.User;
 import com.example1.demo1.service.impl.UserServiceImpl;
@@ -22,8 +23,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/user")
 public class UserController {
+
     @Autowired
     private UserServiceImpl userService;
+
 
     @RequestMapping(value="/create", method = RequestMethod.POST)
     public User saveUser( @RequestBody UserDto user, HttpServletResponse response ) throws IOException{
@@ -43,6 +46,19 @@ public class UserController {
         return userService.findByInitial(letra);
     }
 
+    //Le paso por parametro un producto existente
+    
+    
+    // @RequestMapping(value="/addProduct", method = RequestMethod.POST)
+    // public void addProductToCar(@RequestBody ProductDto product, Long idUser, HttpServletResponse response)throws IOException{
+    //     if(idUser==null || product.getName()==null){
+    //         response.sendError(HttpServletResponse.SC_BAD_REQUEST);
+    //     }
+    //     userService.addProductToCar(idUser, product);
 
+    //     //Crear carro si no existe uno
+    //     //inicializar carro si ya hay uno creado
+    // }
+    
     
 }
